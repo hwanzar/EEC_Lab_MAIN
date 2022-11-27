@@ -174,11 +174,11 @@ Finally, the simulation on PSpice is run to double check with theory calculation
 \textit{Explanations, formulas, and equations are expected rather than only results.}\\
 
 According to the: Ohm's Law and Complete diode model formula\bigskip\\
-We have $V_{D}$: $I \cdot R_D + 0.7$\bigskip\\
+We have $V_{D}$: $V_D = I \cdot R_D + 0.7$\bigskip\\
 Formula to calculate $V_{R}$: $ V_R = I \cdot R $\bigskip\\
 Formula to calculate $I$: $I = \frac{V - 0.7}{R + r'_d}$\bigskip\\
 Finally, when R = 220 Ohm, $V_{R} = I_{220} \cdot R = \frac{5-0.7}{220 + 50} \times 220 \approx 3.5037 (V)$ \bigskip\\
-And when R = 1.5K Ohm, $V_{R} = I_{1.5K}\cdot R =\frac{5-0.7}{1500+50} \times 1500 \approx 4.16129 (V)) $ \bigskip\\
+And when R = 1.5K Ohm, $V_{R} = I_{1.5K}\cdot R =\frac{5-0.7}{1500+50} \times 1500 \approx 4.16129 (V)$ \bigskip\\
 
 
 \subsubsection{PSpice Simulation}
@@ -198,10 +198,10 @@ In this section, the theory calculations and PSpice simulations are summarized i
 \begin{center}
     \begin{tabular}{l|l|l|l|l|l|l|}
         \cline{2-7}
-                                          & \multicolumn{3}{c|}{\textbf{Theory}} & \multicolumn{3}{c|}{\textbf{PSpice}}                          \\ \cline{2-7}
-                                          & $V_R$                                & $V_D$                                & I      & $V_R$ & V & I \\ \hline
-        \multicolumn{1}{|l|}{R = 220 Ohm} & 3.5037                               & 4.16129                              & 0.0159 &       &   &   \\ \hline
-        \multicolumn{1}{|l|}{R= 1.5K Ohm} &                                      &                                      &        &       &   &   \\ \hline
+                                          & \multicolumn{3}{c|}{\textbf{Theory}} & \multicolumn{3}{c|}{\textbf{PSpice}}                                                              \\ \cline{2-7}
+                                          & $V_R$                                & $V_D$                                & I                     & $V_R$ & V & I                      \\ \hline
+        \multicolumn{1}{|l|}{R = 220 Ohm} & 3.5037                               & 1.4963                               & 0.0159                &       &   & 0.01939                \\ \hline
+        \multicolumn{1}{|l|}{R= 1.5K Ohm} & 4.1613                               & 0.8387                               & $2.77 \times 10^{-3}$ &       &   & $2.878 \times 10^{-3}$ \\ \hline
     \end{tabular}
 \end{center}
 
@@ -257,8 +257,8 @@ Students are supposed to capture the screen in PSPice and present in this report
     \begin{tabular}{l|l|l|l|l|l|}
         \cline{2-6}
                                           & \multicolumn{1}{c|}{$V_{D1}$} & \multicolumn{1}{c|}{$V_{D2}$} & \multicolumn{1}{c|}{$V_{D3}$} & \multicolumn{1}{c|}{$V_{R1}$} & \multicolumn{1}{c|}{$I$} \\ \hline
-        \multicolumn{1}{|l|}{Calculation} &                               &                               &                               &                               &                          \\ \hline
-        \multicolumn{1}{|l|}{PSpice}      &                               &                               &                               &                               &                          \\ \hline
+        \multicolumn{1}{|l|}{Calculation} & 0.7223V                       & 0.7223V                       & 0.7223V                       & 7.8331V                       & 7.8331mA                 \\ \hline
+        \multicolumn{1}{|l|}{PSpice}      & 0.709V                        & 0.709V                        & 0.709V                        & 7.873V                        & 7.873mA                  \\ \hline
     \end{tabular}
 \end{center}
 
@@ -268,7 +268,7 @@ The circuit in this exercise is a simple solution to design a power supply by le
 In PSpice, some exercise in the lesson can be simulated to confirm the results. Although it is not exactly the same values (e.g. voltage and current), the simulation in PSpice is a tool to check your solution. An example simulation circuit having diode and resistors is depicted as follows:
 
 \begin{figure}[!htp]
-    \label{pic:halfwave_rectifier}
+    \label{pic:halfwave_rectifier3}
     \centering
     \includegraphics[width = 4in]{source/picture/bai_2/diode_10.PNG}
     \caption{Circuit analysis with diode}
@@ -305,8 +305,8 @@ Students are supposed to summarized the results from both theory calculations an
         \cline{2-13}
                                       & \multicolumn{6}{c|}{\textbf{Theory Calculation}} & \multicolumn{6}{c|}{\textbf{PSpice Simulation}}                                                                                                                                                                    \\ \cline{2-13}
                                       & \multicolumn{1}{c|}{$I_{R1}$}                    & \multicolumn{1}{c|}{$I_{R2}$}                   & \multicolumn{1}{c|}{$I_{R3}$} & \multicolumn{1}{c|}{$I_{R4}$} & \multicolumn{1}{c|}{$V_{1}$} & $V_2$ & $I_{R1}$ & $I_{R2}$ & $I_{R3}$ & $V_{R4}$ & $V_1$ & $V_2$ \\ \hline
-        \multicolumn{1}{|l|}{V = 8V}  &                                                  &                                                 &                               &                               &                              &       &          &          &          &          &       &       \\ \hline
-        \multicolumn{1}{|l|}{V = 12V} &                                                  &                                                 &                               &                               &                              &       &          &          &          &          &       &       \\ \hline
+        \multicolumn{1}{|l|}{V = 8V}  & 1.33                                             & 0.755                                           & 0.665                         & 0.89                          & 6.04                         & 5.34  & 0.996    & 0.751    & 0.653    & 0.898    & 6.008 & 5.389 \\ \hline
+        \multicolumn{1}{|l|}{V = 12V} & 1.89                                             & 1.115                                           & 0.945                         & 1.37                          & 8,92                         & 8.22  & 1.553    & 1.112    & 0.395    & 1.377    & 8.894 & 8.260 \\ \hline
     \end{tabular}
 
 \end{center}
@@ -351,8 +351,8 @@ Students are supposed to summarized the results from both theory calculations an
         \cline{2-9}
                                       & \multicolumn{4}{c|}{Theory calculation} & \multicolumn{4}{c|}{PSpice simulation}                                                                                                             \\ \cline{2-9}
                                       & \multicolumn{1}{c|}{$I_{R1}$}           & \multicolumn{1}{c|}{$I_{R2}$}          & \multicolumn{1}{c|}{$I_{D2}$} & \multicolumn{1}{c|}{$V_{R2}$} & $I_{R1}$ & $I_{R2}$ & $I_{D2}$ & $V_{R2}$ \\ \hline
-        \multicolumn{1}{|l|}{V = 12V} &                                         &                                        &                               &                               &          &          &          &          \\ \hline
-        \multicolumn{1}{|l|}{V = 20V} &                                         &                                        &                               &                               &          &          &          &          \\ \hline
+        \multicolumn{1}{|l|}{V = 12V} & 1.893                                   & 0.212                                  & 1.681                         & 0.7                           & 1.903    & 0.203    & 1.701    & 0.67     \\ \hline
+        \multicolumn{1}{|l|}{V = 20V} & 3.321                                   & 0.212                                  & 3.109                         & 0.7                           & 3.327    & 0.208    & 3.119    & 0.68     \\ \hline
     \end{tabular}
 \end{center}
 
@@ -391,6 +391,7 @@ The bias point simulation is run in PSpice with both power sources are enabled. 
 \begin{figure}[!htp]
     \centering
     \includegraphics[width = 500px]{source/picture/bai_2/sim_ex5.png}
+    \label{sim_ex5}
 \end{figure}
 \newpage
 \vspace{8cm}
@@ -403,8 +404,7 @@ Students are supposed to summarized the results from both theory calculations an
         \hline
         \multicolumn{4}{|c|}{Theory calculation} & \multicolumn{4}{c|}{PSpice simulation}                                                                                                             \\ \hline
         \multicolumn{1}{|c|}{$I_{D1}$}           & \multicolumn{1}{c|}{$I_{D2}$}          & \multicolumn{1}{c|}{$I_{RL}$} & \multicolumn{1}{c|}{$V_{RL}$} & $I_{D1}$ & $I_{D2}$ & $I_{RL}$ & $V_{RL}$ \\ \hline
-                                                 &                                        &                               &                               &          &          &          &          \\ \hline
-                                                 &                                        &                               &                               &          &          &          &          \\ \hline
+        0                                        & 8.3                                    & 8.3                           & 8.3                           & 3.299    & 8.289    & 8.289    & 8.289    \\ \hline
     \end{tabular}
 \end{center}
 
@@ -413,15 +413,16 @@ The last feature of the diodes in this circuit is  to protect the reverse curren
 
 % Exercise 3: Half-wave Rectifier.
 % https://www.youtube.com/watch?v=A7pHAu2W5fE
-\subsection{Half-wave Rectifier}\label{halfwaveRectifier}
+\subsection{Half-wave Rectifier}
+\label{halfwaveRectifier}
 In this exercise, an alternating source is used to generate a half-wave rectifier output using a diode. The schematic of the simulation is given bellow:
 
 \begin{figure}[!htp]
-    \label{pic:halfwave_rectifier3}
+    \label{pic:halfwave_rectifier}
     \centering
     \includegraphics[width = 3.5in]{source/picture/bai_2/diode_6.PNG}
     \caption{Half-wave Rectifier with Voltage Sin Source}
-    \label{lab02_ex031e}
+    \label{lab02_ex031}
 \end{figure}
 
 \textbf{Step 1: } Create the schematic.\\
@@ -451,7 +452,7 @@ In order to generate the output signal of the voltage probe, the analysis type i
     \centering
     \includegraphics[width = 5in]{source/picture/bai_2/diode_8.PNG}
     \caption{Create Time Domain simulation profile}
-    \label{lab02_ex031g}
+    \label{lab02_ex031z}
 \end{figure}
 
 
@@ -474,24 +475,29 @@ Finally, run the simulation and the output on the simulation windows should be p
 
 \textbf{\textit{Approximation:}} Diodes have $V_f$ = 0.78V\\
 \begin{itemize}
-    \item Minimum Value of $V_{R1}$ = \dotfill\\
-    \item Maximum Value of $V_{R1}$ = \dotfill\\
-    \item Duration (millisecond) for a cycle of $V_{R1}$ = \dotfill\\
+    \item Minimum Value of $V_{R1}$ = 0V \dotfill\\
+    \item Maximum Value of $V_{R1} = V - V_D = 22 - 0.78 = 21.2628V$\dotfill\\
+    \item Duration (millisecond) for a cycle of $V_{R1} = \frac{1}{f} = \frac{1}{50} = 20ms$ \dotfill\\
 \end{itemize}
 
 \subsubsection{PSpice simulation}
 Export your simulation results to Notepad for instance, and find the minimum and the maximum point of the output voltage, then fill your answer to the section bellow:
 
 \begin{itemize}
-    \item Minimum Value of $V_{R1}$ = \dotfill\\
-    \item Maximum Value of $V_{R1}$ = \dotfill\\
-    \item Duration (millisecond) for a cycle of $V_{R1}$ = \dotfill\\
+    \item Minimum Value of $V_{R1}$ = $-1.92756 \mu V$ \dotfill\\
+    \item Maximum Value of $V_{R1} = V - V_D = 22 - 0.78 = 21.263V$ \dotfill\\
+    \item Duration (millisecond) for a cycle of $V_{R1}$: $\frac{1}{f} = \frac{1}{50} = 20ms$ \dotfill\\
 \end{itemize}
 
 The tracking point can also be used directly on the simulation output windows, by the \textbf{Toggle Cursor} option on the toolbar. A Probe Cursor window is opened to update a tracking point.
+\begin{figure}[!htp]
+    \label{pic:halfwave_rectifier7}
+    \centering
+    \includegraphics[width = 5in]{source/picture/bai_2/ex6_plot.png}
 
+    \label{lab02_ex031g}
+\end{figure}
 % Exercise 4: Full-wave Rectifier.
-
 % Given the following circuit. Simulate circuit to understand more about Half-wave Rectifier Application of Diode.
 
 % \begin{figure}[!htp]
@@ -552,9 +558,14 @@ The Voltage Differential Markers in PSPICE for TI:
 \\
 \textbf{\textit{Approximation:}} \textit{Diodes have $V_f$ = 0.7V}\bigskip\\
 \\
-$V_{AB} = $ \dotfill\bigskip\\
+$V_{AB} = V_1 \cdot \frac{N_2}{N_1} = V_1 \cdot 0.1$ \bigskip\\
+According to Kirchoff's Voltage Law:\\
+If $V_{AB}$ is on positive half cycle: $V_{CD} = V_{AB} - V_{D_2} - V_{D_3} = V_{AB} - 1.4$
 \\
-$V_{CD} = $ \dotfill\bigskip\\
+If $V_{AB}$ is on positive half cycle: $V_{CD} = V_{BA} - V_{D_1} - V_{D_4} = -V_{AB} - 1.4$
+\\
+
+$V_{CD} = |AB| - 1.4$ \bigskip\\
 
 
 \subsubsection{Simulation}
@@ -566,15 +577,12 @@ Now, create a simulation profile as guided in the \textbf{Exercise \ref{halfwave
 
 \textbf{\textit{Simulation result:}}
 Show both $V_{AB}$ and $V_{CD}$ in a single plot window to illustrate the relationship between them. Don't forget to use the cursors to prove that the equation you've written is correct.\\
-\\
 \textit{(Your image(s) goes here)}\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=500px]{source/picture/bai_2/ex7_sim.png}
 \end{figure}
 
-\\
-\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=500px]{source/picture/bai_2/ex7_plot.png}
@@ -720,7 +728,6 @@ The results are summarized in the table bellow.
 %     \item Capture simulation diagram for each circuit
 %     \item \textbf{Analyze} briefly circuit (for each diagram) 
 % \end{itemize}
-
 % Exercise 7: AC/DC Power Circuit Application.
 \subsection{AC/DC Power Circuit Application}
 In this exercise, we are building step by step an AC to DC voltage source transformation circuit. Students perform a time-domain simulation and write out comments and explanations for each step.\\
@@ -728,468 +735,173 @@ In this exercise, we are building step by step an AC to DC voltage source transf
 \textbf{\textit{Tips: }} To place a capacitor, go to \textbf{\textit{Place > PSpice Component > Capacitor}}
 
 \begin{itemize}
-    \item \textbf{Step 1:} The rectified voltage without any filtering or being regulated.  \begin{figure}[H] \centering \includegraphics[width=\linewidth]{source/content/lab2_ex9_step1.png} \caption{The rectified voltage without any filtering or being regulated} \label{lab2_ex9_step1} \end{figure} \textit{\textbf{Simulation result:}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \item \textbf{Step 2:} Rectified voltage regulated with a $10\micro F$ capacitor.  \begin{figure}[H] \centering \includegraphics[width=\linewidth]{source/content/lab2_ex9_step2.png} \caption{Rectified voltage regulated with a capacitor} \label{lab2_ex9_step2} \end{figure} \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \item \textbf{Step 3}: Replace the $10\micro F$ capacitor with a $680\micro F$ one and re-run the simulation, recognize the change in the result and explain.\\ \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{6cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \item \textbf{Step 4:} Add a zener diode as in Figure \ref{lab2_ex9_step3} with the $zener voltage$ properties set to 22 volt then simulate the circuit and comment or explain the result.  \begin{figure}[H] \centering \includegraphics[width=\linewidth]{source/content/lab2_ex9_step3.png} \caption{Rectified voltage regulated with a capacitor and a zener diode} \label{lab2_ex9_step3} \end{figure} \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \item \textbf{Step 5:} Change the $zener voltage$ properties of the zener diode to 20 voltage and then re-run the simulation. Comment and explain any changes in the result.\\ \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \end{itemize} \newpage % AC/DC Power Circuit Application With LM2596_12P0_TRANS \subsection{Exercise 8:  AC/DC Power Circuit Application With LM2596\_5P0\_TRANS} Figure \ref{incomplete2596} describes an incomplete Texas Instrument LM2596 - 5.0 Switching Power Supply circuit. It lacks a Zener diode voltage regulator and an inductor reducing the voltage variation. At first, let perform a time-domain (transient) simulation with this incomplete circuit and figure out the problem with the output voltage (the voltage marker at R1).  \begin{figure}[H] \centering \includegraphics[width=18cm]{source/picture/bai_2/lab2_ex10_step1.png} \caption{Incomplete switching power supply circuit} \label{incomplete2596} \end{figure} \textbf{\textit{Tips:}}\\ \\ To place the switching power supply IC LM2596 - 5.0, go to \textbf{\textit{Place > PSpice Component... > Search...}} then search for \textit{LM2596\_5P0\_TRANS}.  But before you can perform a transient simulation and analysis with this circuit, we will need to pay attention to some minor settings on the simulation profile.\\ \\ \begin{figure}[H] \centering \includegraphics[width=\linewidth]{source/picture/bai_2/lab2_ex10_simProf1.png} \caption{Set the transient simulation duration} \label{lab2_ex10_simProf1} \end{figure} \begin{figure}[H] \centering \includegraphics[width=\linewidth]{source/picture/bai_2/lab2_ex10_simProf2.png} \caption{Set the transient calculation accuracy} \label{lab2_ex10_simProf2} \end{figure} \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \\ \\ Next, add an inductor $33\micro H$ to the circuit as shown in Figure \ref{lab2_ex10_step2} then re-run the simulation and explain any improvements.  \begin{figure}[H] \centering \includegraphics[width=18cm]{source/picture/bai_2/lab2_ex10_step2.png} \caption{A $33\micro H$ inductor added to the circuit} \label{lab2_ex10_step2} \end{figure} \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\ \\ \vspace{8cm} \\ \textbf{\textit{Any comments or explanations:}} \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \dotfill\bigskip\par\mbox{}\dotfill \\ \\ Continue, add a 5V Zener diode to the circuit as shown in Figure \ref{lab2_ex10_step3}, change the capacitor to $220\micro F$, add a current marker to the Zener diode, re-run the simulation and explain the role of the Zener diode in the circuit.  \begin{figure}[H] \centering \includegraphics[width=17cm]{source/picture/bai_2/lab2_ex10_step3.png} \caption{A 5V Zener diode added to the circuit} \label{lab2_ex10_step3} \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    \item \textbf{Step 1:} The rectified voltage without any filtering or being regulated.
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width=\linewidth]{source/content/lab2_ex9_step1.png}
+              \caption{The rectified voltage without any filtering or being regulated}
+              \label{lab2_ex9_step1}
+          \end{figure}
+          \textit{\textbf{Simulation result:}} \textit{Your image goes here}\\
+          \\
+          \vspace{8cm}
+          \\
+          \textbf{\textit{Any comments or explanations:}}
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+
+    \item \textbf{Step 2:} Rectified voltage regulated with a $10\micro F$ capacitor.
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width=\linewidth]{source/content/lab2_ex9_step2.png}
+              \caption{Rectified voltage regulated with a capacitor}
+              \label{lab2_ex9_step2}
+          \end{figure}
+          \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+          \\
+          \vspace{8cm}
+          \\
+          \textbf{\textit{Any comments or explanations:}}
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+    \item \textbf{Step 3}: Replace the $10\micro F$ capacitor with a $680\micro F$ one and re-run the simulation, recognize the change in the result and explain.\\
+          \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+          \\
+          \vspace{6cm}
+          \\
+          \textbf{\textit{Any comments or explanations:}}
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+    \item \textbf{Step 4:} Add a zener diode as in Figure \ref{lab2_ex9_step3} with the $zener voltage$ properties set to 22 volt then simulate the circuit and comment or explain the result.
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width=\linewidth]{source/content/lab2_ex9_step3.png}
+              \caption{Rectified voltage regulated with a capacitor and a zener diode}
+              \label{lab2_ex9_step3}
+          \end{figure}
+          \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+          \\
+          \vspace{8cm}
+          \\
+          \textbf{\textit{Any comments or explanations:}}
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+    \item \textbf{Step 5:} Change the $zener voltage$ properties of the zener diode to 20 voltage and then re-run the simulation. Comment and explain any changes in the result.\\
+          \textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+          \\
+          \vspace{8cm}
+          \\
+          \textbf{\textit{Any comments or explanations:}}
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+          \dotfill\bigskip\par\mbox{}\dotfill
+\end{itemize}
+
+\newpage
+
+% AC/DC Power Circuit Application With LM2596_12P0_TRANS
+\subsection{Exercise 8:  AC/DC Power Circuit Application With LM2596\_5P0\_TRANS}
+Figure \ref{incomplete2596} describes an incomplete Texas Instrument LM2596 - 5.0 Switching Power Supply circuit. It lacks a Zener diode voltage regulator and an inductor reducing the voltage variation. At first, let perform a time-domain (transient) simulation with this incomplete circuit and figure out the problem with the output voltage (the voltage marker at R1).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=18cm]{source/picture/bai_2/lab2_ex10_step1.png}
+    \caption{Incomplete switching power supply circuit}
+    \label{incomplete2596}
+\end{figure}
+
+\textbf{\textit{Tips:}}\\
+\\
+To place the switching power supply IC LM2596 - 5.0, go to \textbf{\textit{Place > PSpice Component... > Search...}} then search for \textit{LM2596\_5P0\_TRANS}.
+
+But before you can perform a transient simulation and analysis with this circuit, we will need to pay attention to some minor settings on the simulation profile.\\
+\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{source/picture/bai_2/lab2_ex10_simProf1.png}
+    \caption{Set the transient simulation duration}
+    \label{lab2_ex10_simProf1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{source/picture/bai_2/lab2_ex10_simProf2.png}
+    \caption{Set the transient calculation accuracy}
+    \label{lab2_ex10_simProf2}
+\end{figure}
+
+\textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+\\
+\vspace{8cm}
+\\
+\textbf{\textit{Any comments or explanations:}}
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\\
+\\
+Next, add an inductor $33\micro H$ to the circuit as shown in Figure \ref{lab2_ex10_step2} then re-run the simulation and explain any improvements.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=18cm]{source/picture/bai_2/lab2_ex10_step2.png}
+    \caption{A $33\micro H$ inductor added to the circuit}
+    \label{lab2_ex10_step2}
+\end{figure}
+
+\textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+\\
+\vspace{8cm}
+\\
+\textbf{\textit{Any comments or explanations:}}
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\\
+\\
+Continue, add a 5V Zener diode to the circuit as shown in Figure \ref{lab2_ex10_step3}, change the capacitor to $220\micro F$, add a current marker to the Zener diode, re-run the simulation and explain the role of the Zener diode in the circuit.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=17cm]{source/picture/bai_2/lab2_ex10_step3.png}
+    \caption{A 5V Zener diode added to the circuit}
+    \label{lab2_ex10_step3}
+\end{figure}
+
+\textit{\textbf{Simulation result(s):}} \textit{Your image goes here}\\
+\\
+\vspace{8cm}
+\\
+\textbf{\textit{Any comments or explanations:}}
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\dotfill\bigskip\par\mbox{}\dotfill
+\\
+\\
 
